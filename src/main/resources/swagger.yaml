@@ -3,7 +3,7 @@ info:
   title: JAIMaze REST Interface spec
   description: API for reinforcement learning
   version: 0.1.0
-  
+
 paths:
   /jaimaze:
     post:
@@ -16,12 +16,12 @@ paths:
             schema:
               type: object
               properties:
-                boardID:
-                  type: string
-                  example: 2e2e83e5-9ca4-48f3-a6b4-ba1e0061fdfa
                 config:
                   type: object
                   properties:
+                    boardID:
+                      type: string
+                      example: 2e2e83e5-9ca4-48f3-a6b4-ba1e0061fdfa
                     validMoves:
                       type: array
                       items:
@@ -44,27 +44,40 @@ paths:
                         x:
                           type: integer
                           format: int32
-                          example: -1
+                          example: 3
                         y:
                           type: integer
                           format: int32
-                          example: 0
+                          example: 4
                     action:
-                     type: string
-                     example: East
+                      type: string
+                      example: East
                     reward:
-                     type: number
-                     format: double
-                     example: -10.5
+                      type: number
+                      format: double
+                      example: -10.5
+                    newPosition:
+                      type: object
+                      properties:
+                        x:
+                          type: integer
+                          format: int32
+                          example: 4
+                        y:
+                          type: integer
+                          format: int32
+                          example: 4
                 currentPosition:
                   type: object
                   properties:
                     x:
                       type: integer
                       format: int32
+                      example: 4
                     y:
                       type: integer
                       format: int32
+                      example: 4
       responses:
         '200':
           description: The action to perform.
